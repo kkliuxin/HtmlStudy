@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="shan" id="shan">
+    love shanshan
+</div>
+</body>
+<script src="../js/jquery.js"></script>
+<script>
+    window.name = 'shanshan';
+    window.ids = 'love';
+//    var getName = function () {
+//        return this.name;
+//    }
+//    console.log(getName());
+//
+//    var myObject =  {
+//        name: 'liux',
+//        getName: function () {
+//            return this.name;
+//        }
+//    };
+//    var myName = myObject.getName;
+//    console.log(myObject.getName());
+//    console.log(myName);
+//    console.log(myName());
+
+//    document.getElementById('shan').onclick = function () {
+//        console.log('outer ' + this.id);
+//        var callback = function () {
+//            console.log('inner ' + this.id);
+//        }
+//        callback();
+//    }
+//    var MyClass = function () {
+//        this.name = 'loveshanshan';
+//    }
+//    var myClass = new MyClass();
+//    var myClass1 = Object.create(myClass);
+//    console.log("myClass :" + myClass.name); // myClass :loveshanshan
+//    console.log("myClass1 : " + myClass1.name); // myClass1 : loveshanshan
+//    myClass.name = 'Jack';
+//    console.log("after myClass1 :" + myClass1.name); // after myClass1 :Jack
+//    myClass1.name = 'Lisa';
+//    console.log('after myClass : ' + myClass.name + '\t' + 'after myClass1 : ' + myClass1.name); //after myClass : Jack	after myClass1 : Lisa
+//    为什么修改myClass的name myClass1的那么也修改了
+//    反之修改myClass1的name 没有修改myClass的name
+
+    function Shape() {
+        this.x = 0;
+        this.y = 0;
+        var scrollTops = function () {
+            console.log('x -- > ' + (x=0));
+        }
+        return {
+            scrollTops : scrollTops
+        }
+    }
+    Shape.prototype.move = function(x , y) {
+        this.x += x;
+        this.y += y;
+        console.info('x :' + x, ' y : ' + y);
+    }
+    function Rectangle() {
+        Shape.call(this);
+    }
+    Rectangle.prototype = Object.create(Shape.prototype);
+    var rect = new Rectangle();
+    console.info(rect instanceof Shape);
+    console.log(rect instanceof Rectangle);
+    rect.move(2,4);
+    console.log('x = ' + rect.x);
+    new Shape().scrollTops();
+</script>
+</html>
