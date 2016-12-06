@@ -69,11 +69,11 @@
         Shape.call(this);
     }
     Rectangle.prototype = Object.create(Shape.prototype);
+//    Rectangle.prototype = new Shape();
     var rect = new Rectangle();
     console.info(rect instanceof Shape);
     console.log(rect instanceof Rectangle);
     rect.move(2,4);
     console.log('x = ' + rect.x);
-    new Shape().scrollTops();
 </script>
 </html>
